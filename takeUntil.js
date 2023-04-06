@@ -35,8 +35,8 @@ const takeUntil = function (array, callback) {
 
 const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];
 const expected1 = [1, 2, 5, 7, 2];
-assertArrayEquals(takeUntil(data1, x => x < 0), expected1);
+assertArrayEquals(takeUntil(data1, (x) => x < 0), expected1);
 
 const data2 = ["I've", "been", "to", "Hollywood", ",", "I've", "been", "to", "Redwood"];
 const expected2 = ["I've", "been", "to", "Hollywood"];
-assertArrayEquals(takeUntil(data2, x => x === ','), expected2);
+assertArrayEquals(takeUntil(data2, (x) => x === ','), expected2);
