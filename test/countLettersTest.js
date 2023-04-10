@@ -1,7 +1,5 @@
-const assert = require('chai').assert;
-const assertEqual = require('../assertEqual');
-const eqArrays = require('../eqArrays');
-
+const assert = ('chai').assert
+const countLetters = require('../countLetters')
 describe("#eqArrays", () => {
   it("returns true for [1, 2, 3], [1, 2, 3]", () => {
     assert.deepEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
@@ -16,3 +14,7 @@ describe("#eqArrays", () => {
     assert.deepEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), false);
   });
 });
+
+
+
+console.log(countLetters("lighthouse in the house"));
