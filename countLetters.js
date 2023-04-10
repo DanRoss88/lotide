@@ -7,15 +7,15 @@ console.log(assertEqual("You did ", "You did it!"));
 console.log(assertEqual(16, 16));
 
 function countLetters(string) {
-  let output = {}; // end object
+  const output = {}; // end object
 
-  for (letter of string) {  //each letter from string
+  for (const letter of string) {  //each letter from string
     if (letter !== " ") {
       if (output[letter]) {
         output[letter]++;
-      } else {
+      } 
         output[letter] = 1;
-      }
+      
     }
   }
   return output;

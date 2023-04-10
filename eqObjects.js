@@ -10,7 +10,7 @@ function eqArrays(a, b) {
 };
 
 
-const assertEqual = function (actual, expected) {
+const assertEqual = function(actual, expected) {
   return actual === expected
     ? `✅✅✅✅ Assertion Passed: ${actual} === ${expected}`
     : `🚫🚫🚫🚫 Assertion Failed: ${actual} !== ${expected}`;
@@ -30,30 +30,38 @@ If both values are indeed arrays: pass them to eqArrays and ensure that it retur
 Otherwise (else): assume that they are primitives and continue to use === to compare the two values
 */
 
-const eqObjects = function (object1, object2) {
+const eqObjects = function(object1, object2) {
   const keys1 = Object.keys(object1);
   const keys2 = Object.keys(object2);
-
-
 
   if (keys1.length !== keys2.length) {
     return false;
   }
 
   for (const key of keys1) {
-    if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
-      if (!eqArrays(object1[key], object2[key])) {
+    const value1 = object1[key];
+    const value2 = object2[key];
+    const bothObj = typeof value1 === 'object' && typeof value2 === 'object';
+    if (bothObj && !eqObjects(value1, value2)) {
+      return false;
+    }
+    else if (!bothObj && (Array.isArray(value1) && Array.isArray(value2))) {
+      if (!eqArrays(value1, value2)) {
         return false;
       }
-    } else {
-      if (object1[key] !== object2[key]) {
+      else if (!bothObj && value1 !== value2) {
         return false;
       }
+
     }
   }
   return true;
 };
 
+
+console.log(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })); // => true
+console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })); // => false
+console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 })); // => false
 
 
 const shirtObject = { color: "red", size: "medium" };

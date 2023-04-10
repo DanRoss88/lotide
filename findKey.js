@@ -1,13 +1,13 @@
-const assertArrayEquals = function (actual, expected) {
-  if (actual, expected) {
-    console.log(`✅ Assertion Passed: ${actual} === ${expected}`);
-  } else {
+const assertArrayEquals = function(actual, expected) {
+  if (actual !== expected) {
     console.log(`🚫 Assertion Failed: ${actual} !== ${expected}`);
   }
+  console.log(`✅ Assertion Passed: ${actual} === ${expected}`);
+
 };
 
-const findKey = function (obj, callback) {
-  let result ;
+const findKey = function(obj, callback) {
+  let result;
   for (let element in obj) {
     if (callback(obj[element])) {
       result = element;

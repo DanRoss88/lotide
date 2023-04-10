@@ -19,14 +19,14 @@ const assertArrayEquals = function (actual, expected) {
 // consider countOnly function, and add in another section to the array for index
 const letterPositions = function (sentence) {
   const results = {};
-  for (let i = 0; i < sentence.length; i++) {
+  for (const i in sentence) {
     let letter = sentence[i];
     if (letter !== " ") {
       if (results[letter]) {
         results[letter].push(i);
-      } else {
+      } 
         results[letter] = [i];
-      }
+      
     }
   }
   return results;
@@ -34,4 +34,4 @@ const letterPositions = function (sentence) {
 
 
 console.log(letterPositions("lighthouse in the house"));
-console.log(assertArrayEquals(letterPositions("hello").e, [1]));
+console.log(assertArrayEquals(letterPositions("hello world") , ("hello world")));
