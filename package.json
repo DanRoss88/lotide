@@ -1,5 +1,5 @@
 {
-  "name": "lotide",
+  "name": "@danross88/lotide",
   "version": "1.0.0",
   "main": "assertArraysEqual.js",
   "directories": {
@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/DanRoss88/lotide.git"
   },
-  "author": "",
+  "author": "@danross88",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DanRoss88/lotide/issues"
@@ -22,5 +22,5 @@
     "chai": "^4.3.7",
     "mocha": "^9.2.2"
   },
-  "description": ""
+  "description": "A library of functions to make coding easier"
 }
